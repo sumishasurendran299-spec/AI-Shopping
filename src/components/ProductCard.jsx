@@ -1,38 +1,36 @@
+import { addToCart } from "../app/cartSlice"
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "../app/cartSlice";
+const ProductCard = ({product}) => {
 
-function ProductCard({product}) {
+const dispatch = useDispatch()
 
-  const dispatch = useDispatch();
+return(
 
-  return (
+<div className="border p-2 rounded ">
 
-    <div className="bg-white p-4 rounded shadow hover:shadow-lg">
+<img src={product.image} />
 
-      <img
-        src={product.image}
-        className="h-40 w-full object-contain"
-      />
+<h2 className="font-bold">{product.title}</h2>
 
-      <h2 className="mt-2 font-semibold">
-        {product.name}
-      </h2>
+<p>${product.price}</p>
 
-      <p className="text-green-600">
-        ₹{product.price}
-      </p>
+<Link to={`/product/${product.id}`}>
+View Details
+</Link>
 
-      <button
-        onClick={()=>dispatch(addToCart(product))}
-        className="mt-2 bg-blue-600 text-white px-3 py-1 rounded"
-      >
-        Add to Cart
-      </button>
+<button
+onClick={()=>dispatch(addToCart(product))}
+className="bg-blue-500 text-white p-2 mt-2 w-full"
+>
+Add to Cart
+</button>
 
-    </div>
+</div>
 
-  )
-};
+)
 
-export default ProductCard;
+}
+
+export default ProductCard

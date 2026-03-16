@@ -1,31 +1,57 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { setCategory } from "../app/productSlice";
+import { useDispatch } from "react-redux"
+import { setCategory } from "../app/productSlice"
 
-function Filter() {
-  const dispatch = useDispatch();
+const Filter = () => {
 
-  return (
-    <select
-      className="border p-2"
-      onChange={(e) => dispatch(setCategory(e.target.value))}
-    >
-      <option>All</option>
-      <option>Shoes</option>
-      <option>Electronics</option>
-      <option>Clothing</option>
-      <option>Jewellery</option>
-      <option>Home-Appliances</option>
-      
-        {/* <div className="text-black font-bold">
-          <Link to="/" Electronics></Link>
-            <Link to="/" Shoes></Link>
-              <Link to="/" Clothing></Link>
-                <Link to="/" Jewllery></Link>
-                  <Link to="/" Home-Appliances></Link>
-                  </div> */}
-    </select>
-  )
-};
+const dispatch = useDispatch()
 
-export default Filter;
+return (
+
+<div className="flex gap-2 mb-2 text-xl">
+
+      <button onClick={()=>dispatch(setCategory("all"))}>
+        All
+      </button>
+
+      <button onClick={()=>dispatch(setCategory("electronics"))}>
+        Electronics
+      </button>
+
+      <button onClick={()=>dispatch(setCategory("fashion"))}>
+        Fashion
+      </button>
+
+        <button onClick={()=>dispatch(setCategory("shoes"))}>
+        Shoes
+      </button>
+
+        <button onClick={()=>dispatch(setCategory("beauty"))}>
+        Beauty
+      </button>
+
+    </div>
+
+)
+}
+
+{/* <select
+className=" border p-2 mb-4"
+onChange={(e)=>dispatch(setCategory(e.target.value))}
+>
+
+
+<option value="all">All</option>
+<option value="electronics">Electronics</option>
+<option value="fashion">Fashion</option>
+<option value="shoes">Shoes</option>
+<option value="beauty">Beauty</option>
+
+
+</select> */}
+
+
+
+
+
+
+export default Filter

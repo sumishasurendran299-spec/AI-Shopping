@@ -1,28 +1,42 @@
+import { Link } from "react-router-dom"
+import { useSelector,useDispatch } from "react-redux"
+import { logout } from "../app/authSlice"
 
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+const Navbar = () => {
 
-function Navbar() {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+const cart = useSelector(s=>s.cart.items)
+const {isAuthenticated} = useSelector(s=>s.auth)
+const dispatch = useDispatch()
 
-  return (
-    <div className="bg-blue-600 text-white  flex justify-between p-4">
-      <Link to="/" className="text-xl font-bold">
-        ShopSmart
-      </Link>
+return(
 
+<div className="bg-blue-600 text-white p-4 flex justify-between">
 
-      
+<Link to="/">ShopSmart</Link>
 
+<div className="flex gap-5">
 
-      <Link to="/cart">
-        Cart ({cartItems.length})
-      </Link>
-    </div>
+<Link to="/cart">Cart ({cart.length})</Link>
 
-     
-  )   
+{!isAuthenticated && (
+<>
+<Link to="/login">Login</Link>
+<Link to="/register">Register</Link>
+</>
+)}
 
-};
+{isAuthenticated && (
+<button onClick={()=>dispatch(logout())}>
+Logout
+</button>
+)}
 
-export default Navbar;
+</div>
+
+</div>
+
+)
+
+}
+
+export default Navbar

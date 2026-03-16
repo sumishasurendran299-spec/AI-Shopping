@@ -1,27 +1,28 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import products from "../data/products";
+import { useParams } from "react-router-dom"
+import products from "../data/products"
 
-function ProductDetails() {
-  const { id } = useParams();
+const ProductDetails = () => {
 
-  const product = products.find((p) => p.id === Number(id));
+const {id} = useParams()
 
-  return (
-    <div className="p-2">
+const product = products.find(p=>p.id===Number(id))
 
-      <img src={product.image} className="w-64 mb-4" />
+return(
 
-      <h1 className="text-2xl font-bold">{product.name}</h1>
+<div className="p-6">
 
-      <p className="text-lg">${product.price}</p>
+<img src={product.image} className="w-60"/>
 
-      <p className="mt-4">
-        This is a detailed product description.
-      </p>
+<h1 className="text-2xl">{product.title}</h1>
 
-    </div>
-  );
+<p>${product.price}</p>
+
+<p>Rating: {product.rating}</p>
+
+</div>
+
+)
+
 }
 
-export default ProductDetails;
+export default ProductDetails
