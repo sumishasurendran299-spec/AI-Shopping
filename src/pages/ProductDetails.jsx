@@ -15,9 +15,13 @@ return(
 
 <h1 className="text-2xl">{product.title}</h1>
 
-<p>${product.price}</p>
+<p>₹{product.price}</p>
 
-<p>Rating: {product.rating}</p>
+<p>Rating:{product.rating}</p>
+
+<p className="text-green-500">Excellent product. Highly recommended.</p>
+ ⭐ ⭐ ⭐ ⭐ ⭐ 
+<p className="text-green-500">Good quality and value for money.</p>
 
 </div>
 

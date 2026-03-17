@@ -14,7 +14,7 @@ return(
 
 <h2 className="font-bold">{product.title}</h2>
 
-<p>${product.price}</p>
+<p>₹{product.price}</p>
 
 <Link to={`/product/${product.id}`}>
 View Details

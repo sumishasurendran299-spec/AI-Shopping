@@ -29,6 +29,10 @@ return (
         Beauty
       </button>
 
+        <button onClick={()=>dispatch(setCategory("grocery"))}>
+        Grocery
+      </button>
+
     </div>
 
 )

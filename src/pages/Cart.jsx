@@ -18,7 +18,7 @@ return(
 
 <h2>{item.title}</h2>
 
-<p>${item.price}</p>
+<p>₹{item.price}</p>
 
 <button
 className="bg-red-500 text-white px-3"
